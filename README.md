@@ -59,13 +59,11 @@
  
 ## 重点：每一个表单控件必须有3个属性和一个特定的样式关键字。
 
-| 名称 | 返回类型 | 描述 |
+## 参数说明
+| 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| checkForm(e) | <code>boolean</code> | 验证所有字段的规则，返回验证是否通过。 |
-| valid() | <code>boolean</code> | 返回验证是否通过。 |
-| size() | <code>number</code> | 返回错误信息的个数。 |
-| validationErrors() | <code>array</code> | 返回所有错误信息。 |
-| addMethod(name, method, message) | <code>boolean</code> | 添加自定义验证方法。 |
+| rules | <code>object</code> | 验证字段的规则 |
+| messages | <code>object</code> | 验证字段的提示信息 |
 
 
 | 属性 | 说明 |
