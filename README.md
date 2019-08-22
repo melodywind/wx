@@ -59,19 +59,21 @@
  
 ## 重点：每一个表单控件必须有3个属性和一个特定的样式关键字。
 
-## 参数说明
-| 参数 | 类型 | 描述 |
-| --- | --- | --- |
-| rules | <code>object</code> | 验证字段的规则 |
-| messages | <code>object</code> | 验证字段的提示信息 |
+'''js
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px;"><tbody><tr><td style="width:123px;">属性</td>
+			<td style="width:376px;">说明</td>
+		</tr><tr><td style="width:123px;">id</td>
+			<td style="width:376px;">表单控件的ID</td>
+		</tr><tr><td style="width:123px;">data-validate</td>
+			<td style="width:376px;">
+			<p>需要做相关验证的关键字，多种验证用‘|’隔开，例如上面的姓名要验证不为空同时长度在4-10个字符：</p>
 
+			<p>data-validate="<strong><span style="color:#f33b45;">notEmpty|size[4,10]</span></strong>"</p>
+			</td>
+		</tr><tr><td style="width:123px;">data-fieldname</td>
+			<td style="width:376px;">当出现错误时，显示在错误提示中的表单名称。</td>
+		</tr></tbody></table>
 
-| 属性 | 说明 |
-| id | 表单控件的ID |
-| data-validate	| 
-需要做相关验证的关键字，多种验证用‘|’隔开，例如上面的姓名要验证不为空同时长度在4-10个字符：
-data-validate="notEmpty|size[4,10]" | 
-| data-fieldname | 当出现错误时，显示在错误提示中的表单名称。| 
  
 
 样式	说明
