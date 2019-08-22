@@ -1,59 +1,59 @@
 ## 微信小程序表单验证插件 -- WxValidate 
 一、wxml文件
 
-<form bindsubmit="formSubmit">
-    <view class="wide-info">      
-      <view class="wide-info-list">
-        <!--姓名-->
-        <view class="info-list">
-          <view class="info-list-1eft">
-            <text class="notEmptyClass">姓名</text>
-          </view>
-          <view class="info-list-right">
-            <input id="name" name='name' placeholder='请输入' value='{{form.name}}' class="wxValidate inputName" 
+&lt;form bindsubmit="formSubmit">
+    &lt;view class="wide-info">      
+      &lt;view class="wide-info-list">
+        &lt;!--姓名-->
+        &lt;view class="info-list">
+          &lt;view class="info-list-1eft">
+            &lt;text class="notEmptyClass">姓名&lt;/text>
+          &lt;/view>
+          &lt;view class="info-list-right">
+            &lt;input id="name" name='name' placeholder='请输入' value='{{form.name}}' class="wxValidate inputName" 
             data-validate="notEmpty|size[4,10]" data-fieldname="姓名"/>
-          </view>
-        </view>
+          &lt;/view>
+        &lt;/view>
  
-        <!--密码-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">密码</text>
-          </view>
-          <view class="info-list-right">            
-            <input type="text" id="password" name="password" placeholder='请输入' value='{{form.age}}' class="wxValidate inputName"
+        &lt;!--密码-->
+        &lt;view class="info-list">
+          &lt;view class="info-list-1eft dark">
+            &lt;text class="notEmptyClass">密码&lt;/text>
+          &lt;/view>
+          &lt;view class="info-list-right">            
+            &lt;input type="text" id="password" name="password" placeholder='请输入' value='{{form.age}}' class="wxValidate inputName"
             data-fieldname="密码" data-validate="notEmpty"/>
-          </view>
-        </view>
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">重复密码</text>
-          </view>
-          <view class="info-list-right">            
-            <input type="text" id="cfpassword" name="cfpassword" placeholder='请输入' value='{{form.age}}' class="wxValidate inputName"
+          &lt;/view>
+        &lt;/view>
+        &lt;view class="info-list">
+          &lt;view class="info-list-1eft dark">
+            &lt;text class="notEmptyClass">重复密码&lt;/text>
+          &lt;/view>
+          &lt;view class="info-list-right">            
+            &lt;input type="text" id="cfpassword" name="cfpassword" placeholder='请输入' value='{{form.age}}' class="wxValidate inputName"
             data-fieldname="重复密码" data-validate="notEmpty|equals[password]"/>
-          </view>
-        </view>
+          &lt;/view>
+        &lt;/view>
  
-        <!--年龄-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">年龄</text>
-          </view>
-          <view class="info-list-right">            
-            <input type="text" id="age" name="age" placeholder='请输入' value='{{form.age}}' class="wxValidate inputName"
+        &lt;!--年龄-->
+        &lt;view class="info-list">
+          &lt;view class="info-list-1eft dark">
+            &lt;text class="notEmptyClass">年龄&lt;/text>
+          &lt;/view>
+          &lt;view class="info-list-right">            
+            &lt;input type="text" id="age" name="age" placeholder='请输入' value='{{form.age}}' class="wxValidate inputName"
             data-fieldname="年龄" data-validate="notEmpty|int|range[18,60]"/>
-          </view>
-        </view>
+          &lt;/view>
+        &lt;/view>
  
-      </view>
+      &lt;/view>
  
-    </view>
-      <!--按钮--->
-    <view class="buttons-kind">
-       <button  class="fabu" form-type="submit">发布</button>
-    </view>
-</form>
+    &lt;/view>
+      &lt;!--按钮--->
+    &lt;view class="buttons-kind">
+       &lt;button  class="fabu" form-type="submit">发布&lt;/button>
+    &lt;/view>
+&lt;/form>
   重点：每一个表单控件必须有3个属性和一个特定的样式关键字。
 
 属性	说明
