@@ -1,4 +1,5 @@
-# wx
+## 微信小程序表单验证插件 -- WxValidate 
+一、wxml文件
 
 <form bindsubmit="formSubmit">
     <view class="wide-info">      
@@ -13,7 +14,7 @@
             data-validate="notEmpty|size[4,10]" data-fieldname="姓名"/>
           </view>
         </view>
-
+ 
         <!--密码-->
         <view class="info-list">
           <view class="info-list-1eft dark">
@@ -33,7 +34,7 @@
             data-fieldname="重复密码" data-validate="notEmpty|equals[password]"/>
           </view>
         </view>
-
+ 
         <!--年龄-->
         <view class="info-list">
           <view class="info-list-1eft dark">
@@ -44,113 +45,7 @@
             data-fieldname="年龄" data-validate="notEmpty|int|range[18,60]"/>
           </view>
         </view>
-        <!--公司名称-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">公司名称</text>            
-          </view>
-          <view class="info-list-right">
-            <input type="text" id="companyName" name="companyName" placeholder='请输入' value='{{form.companyName}}' class="wxValidate inputName" data-validate="notEmpty" data-fieldname="公司名称" />
-          </view>
-        </view>
-        
-        <!--成立时间--->
-        <view class="info-list">
-          <view class="info-list-1eft">
-            <text class="notEmptyClass">成立时间</text>            
-          </view>
-          <view class="info-list-right">
-            <view class="section">
-              <picker mode="date" value="{{date}}" start="1901-01-01" end="2099-12-31" bindchange="bindDateChange"
-              class="wxValidate" id="date" data-validate="notEmpty" data-fieldname="成立时间">
-                <text class="picker">当前选择:{{date}}</text>
-                <text class="iconfont icon-arrow-right-copy-copy" id="phoneIcon"></text>
-              </picker>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="line"></view>
-      <view class="wide-info-list ">         
-        <!--联系电话-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">手机</text>           
-          </view>
-          <view class="info-list-right">            
-            <input id="phone" name='phone' type='number' placeholder='请输入' value='{{form.phone}}' class="wxValidate inputName" 
-            data-fieldname="手机" data-validate="notEmpty|phone"/>
-          </view>
-        </view>
-        <!--身份证-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">身份证</text>           
-          </view>
-          <view class="info-list-right">            
-            <input id="idCard" name='idCard' type='number' placeholder='请输入' value='' class="wxValidate inputName" 
-            data-fieldname="身份证" data-validate="notEmpty|idcard"/>
-          </view>
-        </view>
-        <!--邮箱-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text>邮箱</text>
-          </view>
-          <view class="info-list-right">            
-            <input type="text" name="email" placeholder='请输入' value='{{form.email}}' class="wxValidate inputName" 
-            id="email" data-validate="email" data-fieldname="邮箱"/>
-          </view>
-        </view>
-        <!--个人主页-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text>个人主页</text>
-          </view>
-          <view class="info-list-right">            
-            <input type="text" name="url" placeholder='请输入' value='{{form.url}}' class="wxValidate inputName" 
-            id="url" data-validate="url" data-fieldname="个人主页"/>
-          </view>
-        </view>
-        <!--薪酬-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text>薪酬</text>
-          </view>
-          <view class="info-list-right">            
-            <input type="text" name="money" placeholder='请输入' value='{{form.email}}' class="wxValidate inputName" 
-            id="money" data-validate="number|range[5000,20000]" data-fieldname="薪酬" />
-          </view>
-        </view>
-
-        <!--性别-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">性别</text>
-          </view>
-          <view class="info-list-right">            
-            <radio-group name="sex" id="sex" data-validate="notEmpty" data-fieldname="性别" class="wxValidate inputName" >
-              <radio value="men"/>男
-              <radio value="women">女</radio>
-            </radio-group>
-          </view>
-        </view>
-        
-        <!--爱好-->
-        <view class="info-list">
-          <view class="info-list-1eft dark">
-            <text class="notEmptyClass">爱好</text>
-          </view>
-          <view class="info-list-right">            
-            <checkbox-group name="hobby" id="hobby" data-validate="notEmpty" data-fieldname="爱好" class="wxValidate inputName" >
-              <checkbox value="1">旅行</checkbox>
-              <checkbox value="2">游泳</checkbox>
-              <checkbox value="3">电影</checkbox>
-            </checkbox-group>
-          </view>
-        </view>
-
-
+ 
       </view>
  
     </view>
@@ -159,3 +54,102 @@
        <button  class="fabu" form-type="submit">发布</button>
     </view>
 </form>
+  重点：每一个表单控件必须有3个属性和一个特定的样式关键字。
+
+属性	说明
+id	表单控件的ID
+data-validate	
+需要做相关验证的关键字，多种验证用‘|’隔开，例如上面的姓名要验证不为空同时长度在4-10个字符：
+data-validate="notEmpty|size[4,10]"
+data-fieldname	当出现错误时，显示在错误提示中的表单名称。
+ 
+
+样式	说明
+wxValidate
+代表此表单控件要做相关验证，必须写。
+ 
+
+二.js文件
+
+import WxValidate from '../../utils/WxValidate.js'
+const util = require('../../utils/util.js')
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    date:""   
+  },
+ 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    //验证方法
+    this.WxValidate = new WxValidate();  
+  },
+  bindDateChange : function(e){    
+    this.setData({date:e.detail.value})
+  }, 
+  /***调用验证函数***/
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带的数据为：', e.detail.value)
+    const params = e.detail.value
+    e.detail.value.osscation_address = this.data.osscation_address
+    e.detail.value.date = this.data.date
+    console.log(e.detail.value)
+    console.log(this.WxValidate.rules)
+    console.log(this.WxValidate.messages)
+    //校验表单
+    if (!this.WxValidate.checkForm(params)) {
+      const error = this.WxValidate.errorList[0]
+      util.alert("错误提示",error.msg)
+      return false
+    }
+    //向后台发送时数据 wx.request...    
+    util.alert("成功提示", '提交成功 :' + e.detail.value.date)
+  }
+ 
+})
+  重点： 此页面只要在渲染完的方法里new WxValidate();然后在提交的操作里加上判断即可。
+
+
+三、验证关键字
+
+关键字	说明	用法
+notEmpty	不能为空	 
+size[4,10]
+输入字符的长度	
+可以只写一个数字，注意根据判断的不同，判断要不要写“，”。例如
+长度最小为4则可写成：size[4];
+长度最大为10则可写成：size[,10]，注意逗号不能少;
+int
+整数	 
+number
+数字	 
+range[18,60]
+数值的范围	
+类似与size，但此关键字还多一种判断，例如是不包含首尾的数值，例如
+薪酬必须大于5000 小于等于20000： range(5000,20000]；
+或者年龄必须18-60之间，但不包含18岁和60岁：range(18,60)
+equals[id]
+等于另一个表单的值	 
+tel
+电话格式（中国大陆）	 
+phone	手机格式（中国大陆）	 
+idcard
+身份证（中国大陆）	 
+date
+日期	 
+dateISO
+日期（ISO），例如：2009-06-23，1998/01/22	 
+email	邮箱地址	 
+url	网站地址	 
+
+
