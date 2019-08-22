@@ -59,7 +59,7 @@
  
 ## 重点：每一个表单控件必须有3个属性和一个特定的样式关键字。
 
-'''js
+
 <table border="1" cellpadding="1" cellspacing="1" style="width:500px;"><tbody><tr><td style="width:123px;">属性</td>
 			<td style="width:376px;">说明</td>
 		</tr><tr><td style="width:123px;">id</td>
